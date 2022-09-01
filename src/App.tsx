@@ -1,25 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Home from "./components/routes-component/home.component";
+import Jobs from "./components/routes-component/jobs.component";
+import { Routes, Route } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Login from "./components/login/login.component";
+import ProtectedRoute from "./components/routes-component/protected-route";
+import SignUp from "./components/sign-up/sign-up-component";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<ProtectedRoute>{<Home />}</ProtectedRoute>} />
+      <Route
+        path="/jobs"
+        element={<ProtectedRoute>{<Jobs />}</ProtectedRoute>}
+      />
+
+      <Route path="/login" element={<Login />} />
+      <Route path="/sign-up" element={<SignUp />} />
+    </Routes>
   );
 }
 
