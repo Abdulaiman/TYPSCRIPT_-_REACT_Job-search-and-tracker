@@ -2,7 +2,7 @@ import { Container, Form, Button, Card } from "react-bootstrap";
 import React, { useState } from "react";
 import axios from "axios";
 import DOMAIN from "../../utils/proxy";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const SignUp: React.FC = (): JSX.Element => {
   const navigate = useNavigate();
@@ -117,7 +117,9 @@ const SignUp: React.FC = (): JSX.Element => {
                 marginBottom: "1rem",
               }}
             >
-              <Form.Text>don't have an account? sign Up</Form.Text>
+              <Form.Text>
+                go back to? <Link to={"/login"}>login</Link>
+              </Form.Text>
             </div>
             <Button
               type="submit"

@@ -27,7 +27,10 @@ const Login: React.FC = () => {
       const data = await axios.post(`${DOMAIN.URL}/api/v1/users/login`, input);
 
       localStorage.setItem("token", data.data.token);
-
+      setInput({
+        email: "",
+        password: "",
+      });
       navigate("/");
     } catch (err) {
       alert("incorrect email address or password please check and try again");

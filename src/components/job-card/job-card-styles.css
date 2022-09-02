@@ -1,0 +1,63 @@
+.parent-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-container {
+  background-color: #ffffff;
+  padding: 1.5rem 1rem;
+  margin-top: 2rem;
+  min-height: 20rem;
+  flex: 0 0 calc(33.3% - 2rem);
+  margin-right: 2rem;
+
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.job-title {
+  font-size: 1.5rem;
+}
+.company-info {
+  font-size: 1rem;
+}
+.post-date {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid grey;
+}
+.job-info {
+  padding-top: 0.5rem;
+  display: flex;
+  align-items: space-between;
+  justify-content: space-between;
+}
+
+.cards-container {
+  display: flex;
+  height: 100vh;
+  width: 70vw;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin-left: -10rem;
+}
+
+.search-input {
+  margin-top: 1rem;
+  font-size: larger;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.input-container {
+  display: flex;
+  align-items: space-between;
+  justify-content: space-between;
+  max-width: 22rem;
+  margin-top: 5rem;
+}
+
+.search-btn {
+  margin-top: 1rem;
+  font-size: larger;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
