@@ -1,7 +1,7 @@
 import { useState } from "react";
 import JobCard from "../job-card/job-card-component";
 import axios from "axios";
-import { Container, Row, Col, Spinner, Alert } from "react-bootstrap";
+import { Container, Row, Col, Spinner } from "react-bootstrap";
 import { useEffect } from "react";
 import SideBar from "../sidebar/sidebar-component";
 import DOMAIN from "../../utils/proxy";
@@ -17,22 +17,22 @@ interface Istate {
   }[];
 }
 
-const IndeedJobs: React.FC = (): JSX.Element => {
+const Declined: React.FC = (): JSX.Element => {
   const [jobs, setJobs] = useState<Istate["cards"]>([]);
-
-  const [openAlert, setOpenAlert] = useState<boolean>(true);
+  const myJob: Boolean = true;
+  const jobText: String = "Declined Jobs";
+  const additionalQuery: String = "/get-declined-jobs";
   const token = localStorage.getItem("token");
 
   useEffect(() => {
     const fetchData = async () => {
       const data = await axios.get(
-        `${DOMAIN.URL}/api/v1/get-jobs-indeed/react`,
+        `${DOMAIN.URL}/api/v1/save-job/get-declined-jobs`,
         {
           headers: { authorization: `Bearer ${token}` },
         }
       );
-
-      setJobs(data.data.myData);
+      setJobs(data.data.jobs);
     };
     fetchData();
   }, [token]);
@@ -52,8 +52,10 @@ const IndeedJobs: React.FC = (): JSX.Element => {
           ) : (
             <JobCard
               cards={jobs}
-              url={"/api/v1/get-jobs-indeed"}
               setJobs={setJobs}
+              myJob={myJob}
+              jobText={jobText}
+              additionalQuery={additionalQuery}
             />
           )}
         </Col>
@@ -61,4 +63,4 @@ const IndeedJobs: React.FC = (): JSX.Element => {
     </Container>
   );
 };
-export default IndeedJobs;
+export default Declined;

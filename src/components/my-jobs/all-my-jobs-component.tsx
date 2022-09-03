@@ -17,22 +17,18 @@ interface Istate {
   }[];
 }
 
-const IndeedJobs: React.FC = (): JSX.Element => {
+const AllJobs: React.FC = (): JSX.Element => {
   const [jobs, setJobs] = useState<Istate["cards"]>([]);
-
-  const [openAlert, setOpenAlert] = useState<boolean>(true);
+  const myJob: Boolean = true;
+  const jobText: String = "All Jobs";
   const token = localStorage.getItem("token");
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await axios.get(
-        `${DOMAIN.URL}/api/v1/get-jobs-indeed/react`,
-        {
-          headers: { authorization: `Bearer ${token}` },
-        }
-      );
-
-      setJobs(data.data.myData);
+      const data = await axios.get(`${DOMAIN.URL}/api/v1/save-job`, {
+        headers: { authorization: `Bearer ${token}` },
+      });
+      setJobs(data.data.jobs);
     };
     fetchData();
   }, [token]);
@@ -52,8 +48,9 @@ const IndeedJobs: React.FC = (): JSX.Element => {
           ) : (
             <JobCard
               cards={jobs}
-              url={"/api/v1/get-jobs-indeed"}
               setJobs={setJobs}
+              myJob={myJob}
+              jobText={jobText}
             />
           )}
         </Col>
@@ -61,4 +58,4 @@ const IndeedJobs: React.FC = (): JSX.Element => {
     </Container>
   );
 };
-export default IndeedJobs;
+export default AllJobs;

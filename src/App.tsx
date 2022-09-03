@@ -10,7 +10,13 @@ import Navbar from "./components/navigation/nav-bar-component";
 import IndeedJobs from "./components/onLine-jobs/indeed-lobs-component";
 import GlassdoorJobs from "./components/onLine-jobs/glass-door-jobs.component";
 import LinkedInJobs from "./components/onLine-jobs/linkedIn-jobs-component";
-
+import AllJobs from "./components/my-jobs/all-my-jobs-component";
+import WaitingJobs from "./components/my-jobs/waiting-jobs-component";
+import AppliedJobs from "./components/my-jobs/applied-jobs-component";
+import InterviewScheduled from "./components/my-jobs/interview-scheduled-component";
+import Interviewed from "./components/my-jobs/interviewed-jobs-component";
+import Declined from "./components/my-jobs/declined-jobs-component";
+import AcceptedJobs from "./components/my-jobs/accepted-jobs-component";
 function App() {
   return (
     <Routes>
@@ -31,11 +37,12 @@ function App() {
           <ProtectedRoute>
             <>
               <Navbar />
-              <Jobs />
+              <AllJobs />
             </>
           </ProtectedRoute>
         }
       />
+
       <Route
         path="/indeed-jobs"
         element={
@@ -75,7 +82,7 @@ function App() {
           <ProtectedRoute>
             <>
               <Navbar />
-              <Jobs />
+              <WaitingJobs />
             </>
           </ProtectedRoute>
         }
@@ -86,7 +93,7 @@ function App() {
           <ProtectedRoute>
             <>
               <Navbar />
-              <Jobs />
+              <AppliedJobs />
             </>
           </ProtectedRoute>
         }
@@ -97,7 +104,7 @@ function App() {
           <ProtectedRoute>
             <>
               <Navbar />
-              <Jobs />
+              <InterviewScheduled />
             </>
           </ProtectedRoute>
         }
@@ -108,7 +115,7 @@ function App() {
           <ProtectedRoute>
             <>
               <Navbar />
-              <Jobs />
+              <Interviewed />
             </>
           </ProtectedRoute>
         }
@@ -119,7 +126,7 @@ function App() {
           <ProtectedRoute>
             <>
               <Navbar />
-              <Jobs />
+              <Declined />
             </>
           </ProtectedRoute>
         }
@@ -130,7 +137,7 @@ function App() {
           <ProtectedRoute>
             <>
               <Navbar />
-              <Jobs />
+              <AcceptedJobs />
             </>
           </ProtectedRoute>
         }

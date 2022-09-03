@@ -4,31 +4,53 @@
   justify-content: center;
 }
 
+.alert-box {
+  margin-top: 7rem;
+  margin-bottom: -3rem;
+  margin-right: 4rem;
+  position: fixed;
+  z-index: 2;
+}
+
 .card-container {
   background-color: #ffffff;
   padding: 1.5rem 1rem;
   margin-top: 2rem;
-  min-height: 20rem;
+  min-height: 25rem;
   flex: 0 0 calc(33.3% - 2rem);
   margin-right: 2rem;
-
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition: all ease-in-out 0.5s;
+  color: #595858;
+}
+.card-container:hover {
+  transform: scale(1.1);
 }
 .job-title {
   font-size: 1.5rem;
+}
+.link {
+  /* text-decoration: none; */
+  color: #6e358b;
 }
 .company-info {
   font-size: 1rem;
 }
 .post-date {
   padding-bottom: 1rem;
+
+  font-size: large;
+}
+.lower {
   border-bottom: 1px solid grey;
 }
 .job-info {
   padding-top: 0.5rem;
+  font-size: large;
   display: flex;
   align-items: space-between;
   justify-content: space-between;
+  font-size: large;
 }
 
 .cards-container {
@@ -41,7 +63,6 @@
 }
 
 .search-input {
-  margin-top: 1rem;
   font-size: larger;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
@@ -49,15 +70,52 @@
 
 .input-container {
   display: flex;
-  align-items: space-between;
+  align-items: center;
   justify-content: space-between;
-  max-width: 22rem;
-  margin-top: 5rem;
+  min-width: 40vw;
+  max-width: 50vw;
+  margin-top: 7rem;
 }
-
+.my-job {
+  justify-content: center;
+}
 .search-btn {
-  margin-top: 1rem;
   font-size: larger;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
+  background-color: #6e358b;
+  border: none;
+}
+.search-btn:hover {
+  background-color: #5f45b1;
+}
+.header {
+  color: #6e358b;
+}
+.add-btn {
+  padding: 0.4rem 1rem;
+  margin-top: 1.5rem;
+  font-size: large;
+  background-color: #6e358b;
+  border: none;
+}
+.add-btn:hover {
+  background-color: #bb94cf;
+}
+.custom {
+  padding: 0.4rem 1rem;
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+  border: none;
+}
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+}
+.edit {
+  background-color: #6e358b;
+  font-size: larger;
+}
+.edit:hover {
+  background-color: #5f45b1;
 }
