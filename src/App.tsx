@@ -1,6 +1,6 @@
 import "./App.css";
 import Stats from "./components/routes-component/stats.component";
-import Jobs from "./components/routes-component/jobs.component";
+import Profile from "./components/profile/profile-component";
 import { Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Login from "./components/login/login.component";
@@ -148,7 +148,7 @@ function App() {
           <ProtectedRoute>
             <>
               <Navbar />
-              <Jobs />
+              <Profile />
             </>
           </ProtectedRoute>
         }

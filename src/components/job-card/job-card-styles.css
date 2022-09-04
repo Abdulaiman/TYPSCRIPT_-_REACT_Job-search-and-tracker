@@ -38,8 +38,8 @@
 }
 .post-date {
   padding-bottom: 1rem;
-
-  font-size: large;
+  color: #6e358b;
+  font-size: x-large;
 }
 .lower {
   border-bottom: 1px solid grey;

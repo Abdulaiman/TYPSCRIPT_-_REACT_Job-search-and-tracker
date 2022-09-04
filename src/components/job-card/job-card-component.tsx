@@ -1,5 +1,15 @@
 import { Container, Alert, Button, Card, Form, Modal } from "react-bootstrap";
-import { FaHeart, FaLocationArrow, FaBox, FaClock } from "react-icons/fa";
+import {
+  FaHeart,
+  FaLocationArrow,
+  FaBox,
+  FaClock,
+  FaGem,
+  FaCheck,
+  FaHourglassStart,
+  FaUserCheck,
+  FaRegEdit,
+} from "react-icons/fa";
 import axios from "axios";
 import DOMAIN from "../../utils/proxy";
 import { useState } from "react";
@@ -58,6 +68,7 @@ const JobCard: React.FC<Iprops> = ({
   const [status, setStatus] = useState<String>("");
   const [currentCard, setCurrentCard] = useState<card | undefined>();
   const token = localStorage.getItem("token");
+
   const onSearchJob = async (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
@@ -220,6 +231,20 @@ const JobCard: React.FC<Iprops> = ({
       <Container className="parent-container">
         <div className={"cards-container"}>
           {cards?.map((card, i) => {
+            let icon: JSX.Element | undefined = undefined;
+
+            if (card?.status === "waiting") {
+              icon = <FaHourglassStart />;
+            } else if (card?.status === "applied") {
+              icon = <FaRegEdit />;
+            } else if (card?.status === "interview-scheduled") {
+              icon = <FaGem />;
+            } else if (card?.status === "interviewed") {
+              icon = <FaUserCheck />;
+            } else if (card?.status === "accepted") {
+              icon = <FaCheck />;
+            }
+
             return (
               <Card className="card-container" key={`${i}`}>
                 <Card.Title className={"job-title"}>
@@ -242,12 +267,13 @@ const JobCard: React.FC<Iprops> = ({
                 </div>
 
                 <div className="job-info lower">
-                  <Card.Title className={"company-info post-date"}>
+                  <Card.Title className={"company-info"}>
                     <FaClock /> {card?.postDate}
                   </Card.Title>
                   {myJob ? (
                     <Card.Title className={"company-info post-date"}>
-                      <FaClock /> {card?.status}
+                      {icon}
+                      {card?.status}
                     </Card.Title>
                   ) : (
                     ""

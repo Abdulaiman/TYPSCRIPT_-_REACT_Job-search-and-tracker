@@ -8,7 +8,7 @@ const SideBar: React.FC = (): JSX.Element => {
   return (
     <ProSidebar
       style={{
-        paddingTop: "2rem",
+        paddingTop: "4.5rem",
         marginLeft: "-1rem",
         minHeight: "100vh",
         position: "fixed",
@@ -31,15 +31,6 @@ const SideBar: React.FC = (): JSX.Element => {
             style={{ color: "#FFFAFA", fontSize: "1.2rem" }}
           >
             JOBS
-          </Nav.Link>
-        </MenuItem>
-        <MenuItem icon={<FaGem />}>
-          <Nav.Link
-            to={"/jobs"}
-            as={NavLink}
-            style={{ color: "#FFFAFA", fontSize: "1.2rem" }}
-          >
-            search jobs
           </Nav.Link>
         </MenuItem>
         <SubMenu title="search-jobs" icon={<FaHeart />}>
