@@ -1,5 +1,5 @@
 const DOMAIN: { URL: String } = {
-  URL: "http://localhost:8000",
+  URL: "https://damp-mesa-01003.herokuapp.com",
 };
 
 export default DOMAIN;
