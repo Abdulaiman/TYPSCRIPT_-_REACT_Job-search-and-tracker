@@ -1,6 +1,6 @@
 import "./App.css";
-import Stats from "./components/routes-component/stats.component";
 import Profile from "./components/profile/profile-component";
+import Stats from "./components/stats/stats-component";
 import { Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Login from "./components/login/login.component";

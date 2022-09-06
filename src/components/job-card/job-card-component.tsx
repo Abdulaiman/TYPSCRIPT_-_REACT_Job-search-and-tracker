@@ -69,20 +69,19 @@ const JobCard: React.FC<Iprops> = ({
   const [currentCard, setCurrentCard] = useState<card | undefined>();
   const token = localStorage.getItem("token");
 
+  const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.target.value);
+  };
+
   const onSearchJob = async (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
     setJobs([]);
-
     const data = await axios.get(`${DOMAIN.URL}${url}/${search}`, {
       headers: { authorization: `Bearer ${token}` },
     });
-
     setJobs(data.data.myData);
-  };
-  const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearch(e.target.value);
   };
 
   const onAddHandlerAddJob = async (

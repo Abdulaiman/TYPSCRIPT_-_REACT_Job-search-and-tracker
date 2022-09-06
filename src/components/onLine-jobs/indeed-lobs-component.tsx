@@ -20,21 +20,25 @@ interface Istate {
 const IndeedJobs: React.FC = (): JSX.Element => {
   const [jobs, setJobs] = useState<Istate["cards"]>([]);
 
-  const [openAlert, setOpenAlert] = useState<boolean>(true);
+  const [openAlert, setOpenAlert] = useState<boolean>(false);
   const token = localStorage.getItem("token");
 
   useEffect(() => {
-    const fetchData = async () => {
-      const data = await axios.get(
-        `${DOMAIN.URL}/api/v1/get-jobs-indeed/react`,
-        {
-          headers: { authorization: `Bearer ${token}` },
-        }
-      );
+    try {
+      const fetchData = async () => {
+        const data = await axios.get(
+          `${DOMAIN.URL}/api/v1/get-jobs-indeed/react`,
+          {
+            headers: { authorization: `Bearer ${token}` },
+          }
+        );
 
-      setJobs(data.data.myData);
-    };
-    fetchData();
+        setJobs(data.data.myData);
+      };
+      fetchData();
+    } catch (err) {
+      setOpenAlert(true);
+    }
   }, [token]);
 
   return (
@@ -44,6 +48,15 @@ const IndeedJobs: React.FC = (): JSX.Element => {
           <SideBar />
         </Col>
         <Col sm={9}>
+          <Alert
+            className="alert-box"
+            show={openAlert}
+            variant={"success"}
+            onClose={() => setOpenAlert(false)}
+            dismissible
+          >
+            <Alert.Heading>request time out please try again</Alert.Heading>
+          </Alert>
           {!jobs[0] ? (
             <Spinner
               animation="border"
