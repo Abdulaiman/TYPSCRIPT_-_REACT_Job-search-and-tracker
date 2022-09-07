@@ -57,10 +57,10 @@ const IndeedJobs: React.FC = (): JSX.Element => {
           >
             <Alert.Heading>request time out please try again</Alert.Heading>
           </Alert>
-          {!jobs[0] ? (
+          {!(jobs?.length !== 0) ? (
             <Spinner
               animation="border"
-              style={{ marginTop: "30rem", marginLeft: "30rem" }}
+              style={{ marginTop: "22rem", marginLeft: "22rem" }}
             />
           ) : (
             <JobCard

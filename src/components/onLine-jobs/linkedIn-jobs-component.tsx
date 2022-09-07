@@ -43,10 +43,10 @@ const LinkedInJobs: React.FC = (): JSX.Element => {
           <SideBar />
         </Col>
         <Col sm={9}>
-          {!jobs[0] ? (
+          {!(jobs?.length !== 0) ? (
             <Spinner
               animation="border"
-              style={{ marginTop: "30rem", marginLeft: "30rem" }}
+              style={{ marginTop: "22rem", marginLeft: "22rem" }}
             />
           ) : (
             <JobCard

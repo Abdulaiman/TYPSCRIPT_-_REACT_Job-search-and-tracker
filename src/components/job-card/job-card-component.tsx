@@ -122,7 +122,6 @@ const JobCard: React.FC<Iprops> = ({
       setOpenAlert(false);
     }, 1500);
     setJobs(data.data.jobs);
-    console.log(data);
   };
 
   const onHandleEdit = async (
