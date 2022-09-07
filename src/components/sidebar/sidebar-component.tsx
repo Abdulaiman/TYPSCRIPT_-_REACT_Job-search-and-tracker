@@ -43,7 +43,7 @@ const SideBar: React.FC = (): JSX.Element => {
               indeed-jobs
             </Nav.Link>
           </MenuItem>
-          <MenuItem>
+          {/* <MenuItem>
             <Nav.Link
               to={"/glassdoor-jobs"}
               as={NavLink}
@@ -51,7 +51,7 @@ const SideBar: React.FC = (): JSX.Element => {
             >
               glassdoor-jobs
             </Nav.Link>
-          </MenuItem>
+          </MenuItem> */}
           <MenuItem>
             {" "}
             <Nav.Link
