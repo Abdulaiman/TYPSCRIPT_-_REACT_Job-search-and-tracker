@@ -27,11 +27,21 @@ const Login: React.FC = () => {
       const data = await axios.post(`${DOMAIN.URL}/api/v1/users/login`, input);
 
       localStorage.setItem("token", data.data.token);
-      
+
       navigate("/");
     } catch (err) {
       alert("incorrect email address or password please check and try again");
     }
+  };
+  const onDemo = async () => {
+    const data = await axios.post(`${DOMAIN.URL}/api/v1/users/login`, {
+      email: "aiman@email.com",
+      password: "test1234",
+    });
+
+    localStorage.setItem("token", data.data.token);
+
+    navigate("/");
   };
 
   return (
@@ -101,9 +111,13 @@ const Login: React.FC = () => {
                 backgroundColor: "#BE93D4",
                 cursor: "pointer",
                 border: "none",
+                marginRight: "2rem",
               }}
             >
               Login
+            </Button>
+            <Button variant="info" onClick={onDemo}>
+              Demo Login
             </Button>
           </Form>
         </Card.Body>

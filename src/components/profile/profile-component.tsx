@@ -49,13 +49,6 @@ const Profile: React.FC = (): JSX.Element => {
     fetchData();
   }, [token]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await axios.get(`${DOMAIN.URL}/api/v1/users/me`);
-      console.log(data)
-    };
-    fetchData();
-  }, [token]);
 
 
 
